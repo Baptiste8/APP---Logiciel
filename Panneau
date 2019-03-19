@@ -1,0 +1,44 @@
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+/*Classe gérant l'affichage des onglets*/
+public class Panneau extends JPanel {
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private String section;
+  public Panneau(){}
+  public Panneau(String section) {
+	//Nom de l'onglet
+    this.section = section;
+    //Appelle de la méthode gérant les élements dans les onglets
+    this.initComponent();
+  }
+  
+  private void initComponent() {
+	//En fonction du nom de la section on affiche différent onglet
+    switch(section)
+    {
+    case "Gestion":
+    	//Mise en place de tableaux de l'onglet gestion
+      Object[][] datatab1 = {{"Robot1","URL1"},{"Robot2","URL2"}};
+      String  titletab1[] = {"Nom","URL"};
+      JTable tab1 = new JTable(datatab1 ,titletab1);
+      this.add(new JScrollPane(tab1));
+      
+      Object[][] datatab2 = {{"Robot3","URL3"},{"Robot4","URL4"},{"Robot5","URL5"}};
+      String  titletab2[] = {"Nom","URL"};
+      JTable tab2 = new JTable(datatab2 ,titletab2);
+      this.add(new JScrollPane(tab2));
+      break;
+      
+    case "Action":
+    	//Mise en place des élement de l'onglet Action
+      JLabel afaire = new JLabel ("A FAIRE");
+      this.add(new JScrollPane(afaire));
+      break;
+    }
+  }   
+}
