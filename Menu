@@ -1,0 +1,98 @@
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JTabbedPane;
+
+/*Class permettant de faire le menu.*/
+public class Menu extends JFrame {
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+private JMenuBar menuBar = new JMenuBar();
+//Menus déroulants
+  private JMenu fichier = new JMenu("Fichier");
+  private JMenu ouvrir_recent = new JMenu("Ouvert récemment");
+  private JMenu edition = new JMenu("Edition");
+  private JMenu aide = new JMenu("Aide");
+
+//Elements cliquables du menu 
+  private JMenuItem ouvrir = new JMenuItem("Ouvrir");
+  private JMenuItem sauvegarder = new JMenuItem("Sauvegarder");
+  private JMenuItem fermer = new JMenuItem("Fermer");
+  private JMenuItem ajout_robot = new JMenuItem("Ajout robot");
+  private JMenuItem voir_flotte = new JMenuItem("Voir flotte");
+  private JMenuItem documentation = new JMenuItem("Documentation");
+  private JMenuItem a_propos = new JMenuItem("À propos");
+
+//Element cliquable du menu contenu dans un sous menu
+  private JMenuItem exe1 = new JMenuItem("Exemple1.ex");
+  private JMenuItem exe2 = new JMenuItem("Exemple2.ex");
+
+  public static void main(String[] args){
+	//Programme principale
+    new Menu();
+  }
+
+  public Menu(){
+	//Définition de la fenêtre principale
+	//Nom de la fenêtre
+    this.setTitle("APP - RS - 2019");
+    //Taille de la fenêtre (mise en pleine écran)
+    this.setExtendedState(Frame.MAXIMIZED_BOTH);
+    //Ferme arrête le programme à la fermeture de la fênetre
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    //Ajout des différent élement à la fenêtre principale
+    this.fichier.add(ouvrir);
+
+    this.ouvrir_recent.add(exe1);
+    this.ouvrir_recent.add(exe2);
+
+    this.fichier.add(ouvrir_recent);
+    this.fichier.add(sauvegarder);
+
+    this.fichier.addSeparator();
+    
+    //Ecouteur permettant de fermer la fenêtre
+    fermer.addActionListener(new ActionListener(){
+      public void actionPerformed(ActionEvent arg0) {
+        System.exit(0);
+      }        
+    });
+
+    this.fichier.add(fermer);
+    this.edition.add(ajout_robot);
+    
+    //Ecouteur permettant d'ajouter un robot dans la BDD
+    ajout_robot.addActionListener(new ActionListener(){
+        public void actionPerformed(ActionEvent arg0) {
+        	new Ajout_Robot_Dialog(null, "Ajout robot", true);
+        }        
+      });
+    
+    this.edition.add(voir_flotte);
+    this.aide.add(documentation);
+    this.aide.add(a_propos);
+
+    this.menuBar.add(fichier);
+    this.menuBar.add(edition);
+    this.menuBar.add(aide);
+    this.setJMenuBar(menuBar);
+    
+    //Declaration des onglets
+    Panneau[] tPan = {new Panneau("Gestion"), new Panneau("Action")};
+    JTabbedPane onglet = new JTabbedPane();
+    onglet.add("Gestion", tPan[0]);
+    onglet.add("Action", tPan[1]);
+    
+    this.getContentPane().add(onglet);
+    
+    this.setVisible(true);
+  }
+}
