@@ -10,15 +10,18 @@ public class CRS implements Observer{
 	private Capteur capteur;
 	private Robot robot;
 	
-	CRS(String idCRS){
+	CRS(String idCRS, Capteur capteur, Robot robot){
 		this.idCRS = idCRS;
+		this.data = new Hashtable<Float, Float>();
+		this.capteur = capteur;
+		this.robot = robot;
 	}
 	
-	CRS(String idCRS, Hashtable<Float, Float> data){
+	CRS(String idCRS, Hashtable<Float, Float> data, Capteur capteur, Robot robot){
 		this.idCRS = idCRS;
 		this.data = data;
-		//this.capteur = new Capteur();
-		//this.robot = new Robot;
+		this.capteur = capteur;
+		this.robot = robot;
 	}
 	
 	public String getIdCRS(){
