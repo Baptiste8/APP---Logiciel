@@ -6,6 +6,8 @@ public class ARS implements Observer{
 	
 	private String idARS;
 	private float beginTime;
+	private Action action;
+	private Robot robot;
 	
 	ARS(String idARS){
 		this.idARS = idARS;
@@ -14,6 +16,8 @@ public class ARS implements Observer{
 	ARS(String idARS, float beginTime){
 		this.idARS = idARS;
 		this.beginTime = beginTime;
+		//this.action = new Action();
+		//this.robot = new Robot;
 	}
 	
 	public String getIdARS(){
