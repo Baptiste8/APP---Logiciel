@@ -9,15 +9,17 @@ public class ARS implements Observer{
 	private Action action;
 	private Robot robot;
 	
-	ARS(String idARS){
+	ARS(String idARS, Action action, Robot robot){
 		this.idARS = idARS;
+		this.action = action;
+		this.robot = robot;
 	}
 	
-	ARS(String idARS, float beginTime){
+	ARS(String idARS, float beginTime, Action action, Robot robot){
 		this.idARS = idARS;
 		this.beginTime = beginTime;
-		//this.action = new Action();
-		//this.robot = new Robot;
+		this.action = action;
+		this.robot = robot;
 	}
 	
 	public String getIdARS(){
