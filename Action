@@ -1,0 +1,48 @@
+import java.util.ArrayList;
+
+
+public abstract class Action {
+	
+	private String idAction;
+	private String name;
+	private String description;
+	private ArrayList<Robot> robots;
+	
+	public Action(String idAction){
+		this.idAction = idAction;
+	}
+	
+	public Action(String idAction, String name){
+		this.idAction = idAction;
+		this.name = name;
+	}
+	
+	public String getIdAction(){
+		return this.idAction;
+	}
+	
+	public String getName(){
+		return this.name;
+	}
+	
+	public String getDescription(){
+		return this.description;
+	}
+	
+	public void setIdAction(String idAction){
+		this.idAction = idAction;
+	}
+	
+	public void setName(String name){
+		this.name = name;
+	}
+	
+	public void setDescription(String description){
+		this.description = description;
+	}
+	
+	public ArrayList<Robot> accessibleBy() {
+		return this.robots;
+	}
+
+}
