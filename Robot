@@ -1,0 +1,85 @@
+import java.util.ArrayList;
+
+
+public abstract class Robot {
+
+	private String ipRobot;
+	private String name;
+	private float posx;
+	private float posy;
+	private float angle;
+	private ArrayList<Action> capacities;
+
+	public Robot(String idRobot, String name){
+		this.ipRobot = idRobot;
+		this.name = name;
+	}
+
+	public Robot(String idRobot, String name, float posx, float posy, float angle){
+		this.ipRobot = idRobot;
+		this.name = name;
+		this.posx = posx;
+		this.posy = posy;
+		this.angle = angle;
+	}
+
+	public String getId() {
+		// TODO Auto-generated method stub
+		return this.ipRobot;
+	}
+
+	public String getName() {
+		// TODO Auto-generated method stub
+		return this.name;
+	}
+
+	public float getPosx() {
+		// TODO Auto-generated method stub
+		return this.posx;
+	}
+
+	public float getPosy() {
+		// TODO Auto-generated method stub
+		return this.posy;
+	}
+
+	public float getAngle() {
+		// TODO Auto-generated method stub
+		return this.angle;
+	}
+
+	public void setId(String id) {
+		// TODO Auto-generated method stub
+		this.ipRobot = id;
+	}
+
+	public void setName(String name) {
+		// TODO Auto-generated method stub
+		this.name = name;
+	}
+
+	public void setPosx(float posx) {
+		// TODO Auto-generated method stub
+		this.posx = posx;
+	}
+
+	public void setPosy(float posy) {
+		// TODO Auto-generated method stub
+		this.posy = posy;
+	}
+
+	public void setAngle(float angle) {
+		// TODO Auto-generated method stub
+		this.angle = angle;
+	}
+
+	public String toString(){
+		return "Bot's name : " + name + " with IdRobot : " + ipRobot;
+	}
+
+	public ArrayList<Action> Capacity() {
+		return this.capacities;
+	}
+
+	public abstract void doAction(Action a);
+}
