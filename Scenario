@@ -1,0 +1,37 @@
+import java.util.ArrayList;
+
+
+public class Scenario {
+	
+	private String idScenario;
+	private String name;
+	private float time;
+	private ArrayList<ARS> ARS;
+	private ArrayList<CRS> CRS;
+	
+	Scenario(String idScenario){
+		this.idScenario = idScenario;
+	}
+	
+	Scenario(String idScenario, String name){
+		this.idScenario = idScenario;
+		this.name = name;
+	}
+	
+	public float getTime(){
+		return this.time;
+	}
+	
+	public void setTime(float time){
+		this.time = time;
+	}
+	
+	public void addARS(ARS ars){
+		ARS.add(ars);
+	}
+	
+	public void addCRS(CRS ars){
+		CRS.add(ars);
+	}
+
+}
