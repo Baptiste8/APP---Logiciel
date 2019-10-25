@@ -7,6 +7,8 @@ public class CRS implements Observer{
 	
 	private String idCRS;
 	private Hashtable<Float, Float> data;
+	private Capteur capteur;
+	private Robot robot;
 	
 	CRS(String idCRS){
 		this.idCRS = idCRS;
@@ -15,6 +17,8 @@ public class CRS implements Observer{
 	CRS(String idCRS, Hashtable<Float, Float> data){
 		this.idCRS = idCRS;
 		this.data = data;
+		//this.capteur = new Capteur();
+		//this.robot = new Robot;
 	}
 	
 	public String getIdCRS(){
