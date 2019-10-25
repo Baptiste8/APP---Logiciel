@@ -1,0 +1,55 @@
+import java.util.ArrayList;
+
+
+public class Fleet {
+	
+	private String ipFleet;
+	private String name;
+	private ArrayList<Robot> robots;
+	
+	Fleet(String idFleet){
+		this.ipFleet = idFleet;
+	}
+	
+	Fleet(String idFleet, String name){
+		this.ipFleet = idFleet;
+		this.name = name;
+	}
+	
+	public String getId(){
+		return this.ipFleet;
+	}
+	
+	public String getName(){
+		return this.name;
+	}
+	
+	public ArrayList<Robot> getRobots(){
+		return this.robots;
+	}
+	
+	public void setId(String idFleet){
+		this.ipFleet = idFleet;
+	}
+	
+	public void addRobot(Robot robot){
+		this.robots.add(robot);
+	}
+	
+	public void deleteRobot(Robot robot){
+		this.robots.remove(robot);
+	}
+	
+	public String toString(){
+		return "Fleet's name : " + this.name + " with IP : " + this.ipFleet;
+	}
+	
+	public Robot posInFleet(int index){
+		return this.robots.get(index);
+	}
+	
+	public int sizeFleet(){
+		return this.robots.size();
+	}
+
+}
