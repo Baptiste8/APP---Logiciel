@@ -1,0 +1,42 @@
+import java.util.Hashtable;
+import java.util.Observable;
+import java.util.Observer;
+
+
+public class CRS implements Observer{
+	
+	private String idCRS;
+	private Hashtable<Float, Float> data;
+	
+	CRS(String idCRS){
+		this.idCRS = idCRS;
+	}
+	
+	CRS(String idCRS, Hashtable<Float, Float> data){
+		this.idCRS = idCRS;
+		this.data = data;
+	}
+	
+	public String getIdCRS(){
+		return this.idCRS;
+	}
+	
+	public void setIdCRS(String idCRS){
+		this.idCRS = idCRS;
+	}
+	
+	public void addMeasurement(float time, float value){
+		data.put(time, value);
+	}
+	
+	public float getMeasurement(float time){
+		return (float) data.get(time);
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		// TODO Auto-generated method stub
+		//Information action terminée
+	}
+
+}
